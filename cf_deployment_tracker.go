@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-var deploymentTrackerURL = "https://deployment-tracker-ungraphitized-superselection.mybluemix.net/api/v1/track"
+var deploymentTrackerURL = "https://deployment-tracker.mybluemix.net/api/v1/track"
 
 type Repository struct {
 	Url string
