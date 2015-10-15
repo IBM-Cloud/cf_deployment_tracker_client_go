@@ -22,7 +22,7 @@ type Event struct {
 	DateSent           string   `json:date_sent"`
 	CodeVersion        string   `json:code_version"`
 	RepositoryURL      string   `json:repository_url"`
-	ApplicationURL     string   `json:application_name"`
+	ApplicationName    string   `json:application_name"`
 	SpaceID            string   `json:space_id"`
 	ApplicationVersion string   `json:application_version"`
 	ApplicatonURIs     []string `json:application_uris"`
@@ -42,8 +42,19 @@ func Track() {
 		return
 	}
 
+	event := Event{}
+	if info.Repository.Url {
+		event.RepositoryURL = info.Repository.Url
+	}
+	if info.Name {
+		event.ApplicationName = info.Name
+	}
+	if info.Version {
+		event.ApplicationVersion = info.Version
+	}
+
 	request := gorequest.New()
-	event := Event{RepositoryURL: info.Repository.Url}
+
 	_, _, errs := request.Post(deploymentTrackerURL).
 		Send(event).
 		End()
