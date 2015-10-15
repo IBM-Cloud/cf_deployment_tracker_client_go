@@ -22,7 +22,7 @@ type Event struct {
 	DateSent           string   `json:date_sent"`
 	CodeVersion        string   `json:code_version"`
 	RepositoryURL      string   `json:repository_url"`
-	ApplicationURL     string   `json:application_name"`
+	ApplicationName     string   `json:application_name"`
 	SpaceID            string   `json:space_id"`
 	ApplicationVersion string   `json:application_version"`
 	ApplicatonURIs     []string `json:application_uris"`
