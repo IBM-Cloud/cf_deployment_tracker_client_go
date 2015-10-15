@@ -28,7 +28,7 @@ type Event struct {
 	ApplicatonURIs     []string `json:application_uris"`
 }
 
-func Track() {
+func Track() (errs []error) {
 	content, err := ioutil.ReadFile("package.json")
 	//exit early if we cant read the file
 	if err != nil {
@@ -44,11 +44,12 @@ func Track() {
 
 	request := gorequest.New()
 	event := Event{RepositoryURL: info.Repository.Url}
-	_, _, errs := request.Post(deploymentTrackerURL).
+	_, _, errs = request.Post(deploymentTrackerURL).
 		Send(event).
 		End()
 
 	if errs != nil {
-		panic(err)
+		return errs
 	}
+
 }
