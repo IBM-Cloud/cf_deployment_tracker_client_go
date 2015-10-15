@@ -22,13 +22,17 @@ type Event struct {
 	DateSent           string   `json:date_sent"`
 	CodeVersion        string   `json:code_version"`
 	RepositoryURL      string   `json:repository_url"`
+<<<<<<< HEAD
 	ApplicationName    string   `json:application_name"`
+=======
+	ApplicationName     string   `json:application_name"`
+>>>>>>> a575112d60fdd666a34bfeabb660b5d474d9bfc5
 	SpaceID            string   `json:space_id"`
 	ApplicationVersion string   `json:application_version"`
 	ApplicatonURIs     []string `json:application_uris"`
 }
 
-func Track() {
+func Track() (errs []error) {
 	content, err := ioutil.ReadFile("package.json")
 	//exit early if we cant read the file
 	if err != nil {
@@ -54,12 +58,12 @@ func Track() {
 	}
 
 	request := gorequest.New()
-
 	_, _, errs := request.Post(deploymentTrackerURL).
 		Send(event).
 		End()
 
 	if errs != nil {
-		panic(err)
+		return errs
 	}
+
 }
