@@ -19,7 +19,7 @@ This is an npm module that can track and report details of a demo/tutorial that 
 
 # Example app
 
-To see how to include this into your app please visit [Bluemix Hello World](https://github.com/IBM-Bluemix/bluemix-hello-node).  You will want to pay attention to [package.json](https://github.com/IBM-Bluemix/bluemix-hello-node/blob/master/package.json#L9), and [server.js](https://github.com/IBM-Bluemix/bluemix-hello-node/blob/master/server.js#L15).
+To see how to include this into your app please visit [Bluemix Hello World](https://github.com/IBM-Bluemix/go-hello-world).  You will want to pay attention to [package.json](https://github.com/IBM-Bluemix/go-hello-world/blob/master/package.json), and [go-hello-world.go](https://github.com/IBM-Bluemix/go-hello-world/blob/master/go-hello-world.go).
 
 # Privacy Notice
 
