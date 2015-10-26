@@ -2,8 +2,11 @@ package cf_deployment_tracker
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/parnurzeal/gorequest"
 	"io/ioutil"
+	"os"
+	"time"
 )
 
 var deploymentTrackerURL = "https://deployment-tracker.mybluemix.net/api/v1/track"
@@ -19,13 +22,13 @@ type Package struct {
 }
 
 type Event struct {
-	DateSent           string   `json:date_sent"`
-	CodeVersion        string   `json:code_version"`
-	RepositoryURL      string   `json:repository_url"`
-	ApplicationName    string   `json:application_name"`
-	SpaceID            string   `json:space_id"`
-	ApplicationVersion string   `json:application_version"`
-	ApplicatonURIs     []string `json:application_uris"`
+	DateSent           string   `json:"date_sent"`
+	CodeVersion        string   `json:"code_version"`
+	RepositoryURL      string   `json:"repository_url"`
+	ApplicationName    string   `json:"application_name"`
+	SpaceID            string   `json:"space_id"`
+	ApplicationVersion string   `json:"application_version"`
+	ApplicatonURIs     []string `json:"application_uris"`
 }
 
 func Track() (errs []error) {
@@ -42,24 +45,38 @@ func Track() (errs []error) {
 		return
 	}
 
-	event := Event{}
-	if info.Repository.Url {
-		event.RepositoryURL = info.Repository.Url
-	}
-	if info.Name {
-		event.ApplicationName = info.Name
-	}
-	if info.Version {
-		event.ApplicationVersion = info.Version
+	vcapApplication := os.Getenv("VCAP_APPLICATION")
+	var event Event
+	err = json.Unmarshal([]byte(vcapApplication), &event)
+	//exit early if we are not running in CF
+	if err != nil {
+		return
 	}
 
+	if info.Repository.Url != "" {
+		event.RepositoryURL = info.Repository.Url
+	}
+	if info.Name != "" {
+		event.ApplicationName = info.Name
+	}
+	if info.Version != "" {
+		event.CodeVersion = info.Version
+	}
+
+	now := time.Now()
+	event.DateSent = now.UTC().Format("2006-01-02T15:04:05.999Z")
+
 	request := gorequest.New()
-	_, _, errs := request.Post(deploymentTrackerURL).
+	resp, _, errs := request.Post(deploymentTrackerURL).
 		Send(event).
 		End()
 
 	if errs != nil {
 		return errs
 	}
+
+	fmt.Println(resp.Status)
+
+	return nil
 
 }
