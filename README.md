@@ -2,11 +2,11 @@
 
 This is an npm module that can track and report details of a demo/tutorial that has been deployed to Cloud Foundry.
 
-# To Use
-
 ## Build Status
 
 [![Build Status](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go)
+
+# To Use
 
 1. Open a terminal and run
    ```
