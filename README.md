@@ -9,14 +9,17 @@ This is an npm module that can track and report details of a demo/tutorial that 
 # To Use
 
 1. Open a terminal and run
+
    ```
    go get github.com/IBM-Bluemix/cf_deployment_tracker_client_go
    ```
 2. Require the package in your main entry point to your app (probably app.go).
+
     ```
     import "github.com/IBM-Bluemix/cf_deployment_tracker_client_go"
     ```
 3. Call the tracking code in your main entry point to your app (probably app.go).
+
     ```
     cf_deployment_tracker.Track()
     ```
