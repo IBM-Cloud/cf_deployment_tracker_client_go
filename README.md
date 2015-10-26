@@ -4,6 +4,10 @@ This is an npm module that can track and report details of a demo/tutorial that 
 
 # To Use
 
+## Build Status
+
+[![Build Status](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go)
+
 1. Open a terminal and run
    ```
    npm install cf-deployment-tracker-client --save
