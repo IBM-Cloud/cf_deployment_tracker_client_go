@@ -1,6 +1,6 @@
 # Overview
 
-This is an npm module that can track and report details of a demo/tutorial that has been deployed to Cloud Foundry.
+This is a Go library that can track and report details of a demo/tutorial that has been deployed to Cloud Foundry.
 
 ## Build Status
 
