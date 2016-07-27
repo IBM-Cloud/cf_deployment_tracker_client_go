@@ -4,7 +4,7 @@ This is a Go library that can track and report details of a demo/tutorial that h
 
 ## Build Status
 
-[![Build Status](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go)
+[![Build Status](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/cf_deployment_tracker_client_go) [![Go Report Card](https://goreportcard.com/badge/github.com/IBM-Bluemix/cf_deployment_tracker_client_go)](https://goreportcard.com/report/github.com/IBM-Bluemix/cf_deployment_tracker_client_go)
 
 # To Use
 
