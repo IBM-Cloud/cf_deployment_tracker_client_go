@@ -30,6 +30,8 @@ type Event struct {
 	ApplicationVersion string   `json:"application_version"`
 	ApplicatonURIs     []string `json:"application_uris"`
 	Runtime            string   `json:"runtime"`
+	ApplicationID      string   `json:"application_id"`
+	InstanceIndex      *uint16  `json:"instance_index"`
 }
 
 func Track() (errs []error) {
