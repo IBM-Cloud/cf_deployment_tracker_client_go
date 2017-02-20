@@ -35,7 +35,10 @@ Sample web applications that include this package may be configured to track dep
 * Package version
 * Repository URL
 * Application Name (`application_name`)
+* Application ID (`application_id`)
 * Space ID (`space_id`)
+* Instance Index (`instance_index`)
+* Platform (`runtime`)
 * Application Version (`application_version`)
 * Application URIs (`application_uris`)
 

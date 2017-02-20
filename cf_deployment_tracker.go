@@ -29,6 +29,9 @@ type Event struct {
 	SpaceID            string   `json:"space_id"`
 	ApplicationVersion string   `json:"application_version"`
 	ApplicatonURIs     []string `json:"application_uris"`
+	Runtime            string   `json:"runtime"`
+	ApplicationID      string   `json:"application_id"`
+	InstanceIndex      *uint16  `json:"instance_index"`
 }
 
 func Track() (errs []error) {
@@ -53,6 +56,7 @@ func Track() (errs []error) {
 		return
 	}
 
+	event.Runtime = "go"
 	if info.Repository.Url != "" {
 		event.RepositoryURL = info.Repository.Url
 	}
